@@ -7,63 +7,99 @@ Dimensional Model 311 Service Requests:
 Model of 311 services transactional grain: image
 Motor Vehicle Collisions - Crashes:
 
-Model of Motor Vehicle Collisions transaction grain: image
-MERGED Models: image
+Model of Motor Vehicle Collisions transaction grain: 
+
+<img width="653" height="442" alt="image" src="https://github.com/user-attachments/assets/e6b1bf30-a56d-40cc-a641-958a574578bd" />
+
+MERGED Models:
+
+<img width="655" height="534" alt="image" src="https://github.com/user-attachments/assets/405ab80a-60e2-4b96-9460-5cb8dc3c319c" />
 
 ETL Process and Code We extract datasets using Python and Socate APIs, build the ETL process using dbt Cloud, and host the Data Warehouse in Google BigQuery.
 
-Data Profiling: Before the ETL process, we used a data profiling process to analyze and explore the datasets which helped us to decide which fields to use for our project 311 data: image
+Data Profiling: Before the ETL process, we used a data profiling process to analyze and explore the datasets which helped us to decide which fields to use for our project 311 data:
+
+<img width="254" height="259" alt="image" src="https://github.com/user-attachments/assets/2f6a54ce-122b-4f78-828d-f415713a7d88" />
 
 25.7% zip code missing in 311 from 2018-2023 for 311 Traffic Signal Condition.
 
-image
+<img width="641" height="312" alt="image" src="https://github.com/user-attachments/assets/d7da3d77-c845-4df9-8cda-c2ffb560a23b" />
 
-[Created date frequency chart for 311 data when the complaint type is Traffic Signal Condition] image
+[Created date frequency chart for 311 data when the complaint type is Traffic Signal Condition] 
 
-The top 10 zip code for Traffic Signal Condition Collision Data: image
+<img width="825" height="335" alt="image" src="https://github.com/user-attachments/assets/36e5b642-2aa2-4cc8-bee2-b21744543e51" />
+
+The top 10 zip code for Traffic Signal Condition Collision Data: 
+
+<img width="818" height="208" alt="image" src="https://github.com/user-attachments/assets/3fd74383-5af3-4c57-90fc-2568dc17b599" />
 
 [Missing values] When the fields are Contributing Factore Vehicle 3 or larger and the Vehicle type Code is 3 and larger, more than 90% of data are missing for those values. This is why we decided to use Only Contributing Factore Vehicles 1 &2 and the Vehicle type Code is 1 & 2 instead of using all fields.
-image
+
+<img width="826" height="392" alt="image" src="https://github.com/user-attachments/assets/e1d3b579-652f-4705-b430-91bc6621544f" />
 
 [Frequency of ZIp codes for collision data]
 
 The most common words for reasons of collisions are unspecific, distractions, and inattention. ETL Process Summary: In this phase, we extracted and loaded the data using Python. We added the API in the Python code shown below (311, Collisions) in which that data was extracted into a CSV file and uploaded into GCS. From there the data is imported into a big query where we could move on towards the Transform process of this milestone. Additionally, the code for transformation was used through DBT to create dimensions for both 311 and collisions. which is also attached below in the appendix section for 311 and Collisions. 311 complaint dimensions and Fact Table: Locations dimensions:
-image
 
-Complaint type dimensions: image
+<img width="825" height="360" alt="image" src="https://github.com/user-attachments/assets/3044f7e5-19c6-4b50-99d7-39447bd8fab8" />
 
-Status dimensions: image
+Complaint type dimensions:
 
-Agency dimensions: image
+<img width="826" height="193" alt="image" src="https://github.com/user-attachments/assets/a219f159-6668-41c7-bf45-486a0baf4aa1" />
+
+Status dimensions:
+
+<img width="491" height="169" alt="image" src="https://github.com/user-attachments/assets/61376f12-a20a-414e-bdf2-b6b029e82fee" />
+
+Agency dimensions:
+
+<img width="829" height="121" alt="image" src="https://github.com/user-attachments/assets/c1879cee-aac8-4fe6-b7e5-11dd5850c9a8" />
 
 Complaint Date dimensions:
-image
+
+<img width="825" height="93" alt="image" src="https://github.com/user-attachments/assets/bd5ec4a3-137c-4578-8212-a5df2d80c684" />
 
 Note: This dimension is created from Date view
 
-311 complaint FACT table: image
+311 complaint FACT table:
 
-Collisions dimensions and Fact Table: image
+<img width="822" height="214" alt="image" src="https://github.com/user-attachments/assets/09d163ea-1ea9-4e97-8d9c-6f93d7b2e7d2" />
 
-Collisions Location dimensions: image
+Collisions dimensions and Fact Table: 
+
+<img width="827" height="227" alt="image" src="https://github.com/user-attachments/assets/d74ca82a-05b8-4d01-986d-d5730d0df3ef" />
+
+Collisions Location dimensions: 
+
+<img width="827" height="88" alt="image" src="https://github.com/user-attachments/assets/227ddd6c-9c0a-4892-ab29-f0762700fc5b" />
 
 Collisions time dimensions:
-image
+
+<img width="823" height="89" alt="image" src="https://github.com/user-attachments/assets/b980b5bc-7614-40dd-a834-a01839a454d0" />
 
 Note: this dimension is created from time view
 
-Collisions Date dimensions: image
+Collisions Date dimensions: 
+
+<img width="824" height="88" alt="image" src="https://github.com/user-attachments/assets/2b83db88-08c5-47bc-bb3f-525e89477a15" />
 
 Note: This dimension is created from Date view
 
-Vehicles dimensions: image
+Vehicles dimensions:
+
+<img width="827" height="102" alt="image" src="https://github.com/user-attachments/assets/6fcefd33-e02c-447e-a5cc-3dbf01b093be" />
 
 Collision Fact table:
-image
 
-Merged location: image
+<img width="827" height="83" alt="image" src="https://github.com/user-attachments/assets/110ea157-8b2a-4963-a4d8-76b7b722e82e" />
 
-Additional Notes: For both datasets, there are no common latitude and longitude, in this case, we joined both datasets with zip codes Merged Dates image
+Merged location: 
+
+<img width="826" height="126" alt="image" src="https://github.com/user-attachments/assets/b8f22cc1-80f5-479e-bc43-8aa2b4f1bd47" />
+
+Additional Notes: For both datasets, there are no common latitude and longitude, in this case, we joined both datasets with zip codes Merged Dates 
+
+<img width="827" height="86" alt="image" src="https://github.com/user-attachments/assets/65ff70b6-1aa4-4394-878c-dcfa2695b03b" />
 
 Notes: Both datasets are merged by the full date
 
@@ -163,11 +199,17 @@ WITH collisions_date AS (SELECT * FROM {{ ref('collisions_date') }}), complaint_
 
 SELECT DISTINCT collisions_date.date_dim_id, collisions_date.full_date, collisions_date.year, collisions_date.year_week, collisions_date.year_day, collisions_date.fiscal_year, collisions_date.fiscal_qtr, collisions_date.month, collisions_date.month_name, collisions_date.week_day, collisions_date.day_name, collisions_date.day_is_weekday FROM collisions_date FULL JOIN complaint_date ON collisions_date.full_date = complaint_date.full_date order by date_dim_id
 
-  Finalized Dimensional Schema The following portrays the finalized dimensional schema the business analytics tools are working with. A union was created in Tableau between dim_location and dim_date to create merged_date_location Tableau dimensional schema: image
+  Finalized Dimensional Schema The following portrays the finalized dimensional schema the business analytics tools are working with. A union was created in Tableau between dim_location and dim_date to create merged_date_location Tableau dimensional schema:
 
-Star Schema model: image
+<img width="824" height="219" alt="image" src="https://github.com/user-attachments/assets/5f48e157-ccb3-4051-a03f-f6d03565141a" />
 
-KPI visualizations image
+Star Schema model: 
+
+<img width="822" height="406" alt="image" src="https://github.com/user-attachments/assets/f5b44591-8b09-4598-b11e-2573900d9ac1" />
+
+KPI visualizations
+
+<img width="824" height="600" alt="image" src="https://github.com/user-attachments/assets/01d9fd0c-1501-412c-ac60-3ba107e7c592" />
 
 Top 10 Zip Codes With Highest Collision Counts: The top 10 displayed shows that 11385 is the Zip Code with the highest collision accidents which hold true to the heatmap as well and 11385 is notorious for this problem. This finding is consistent with our other visualizations.
 
